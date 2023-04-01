@@ -1,30 +1,45 @@
+// Name-Bijay Jiwrajka
+// Scholar ID-2112055
+
+// Let's begin
 #include <bits/stdc++.h>
+// #include<appiness.h>
 using namespace std;
+#define md 1000000007
+#define pb push_back
+#define ll long long
+#define fr(i, n) for (ll i = 0; i < n; i++)
+#define inp(v)
+#define all(x) (x).begin(), (x).end()
+typedef long double lld;
+
 int main()
 {
-    int n;
-    cin >> n;
-    long long int arr[n];
-    long long int brr[n];
-    for (int i = 1; i <= n; i++)
+    ll t;
+    cin >> t;
+    while (t--)
     {
-        cin >> arr[i];
-    }
-    for (int i = 1; i <= n; i++)
-    {
-        cin >> brr[i];
-    }
-    long long int ans = 0;
-    long long int max = INT_MIN;
-    int index=0;
-    for (int i = n; i >= 1; i--)
-    {
-        ans = brr[i] - arr[i];
-        if (ans>=max)
+        ll n;
+        cin >> n;
+        vector<pair<int, int>> p(n);
+        for (int i = 0; i < n; i++)
         {
-            max = ans;
-            index=i;
+            cin >> p[i].first >> p[i].second;
         }
+
+
+          int result = 0;
+    for (int i = 0; i < n; i++)
+    {
+        int s = p[i].first;
+        int x = p[i].second;
+        while (result > s)
+        {
+            s += x;
+        }
+        result = max(result, s) + 1;
     }
-    cout <<index<< endl;
+        cout <<result<< endl;
+    }
+    return 0;
 }
