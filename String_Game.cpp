@@ -1,42 +1,45 @@
+// Let's begin
 #include <bits/stdc++.h>
-#define ll long long
+// #include<appiness.h>
 using namespace std;
+#define md 1000000007
+#define pb push_back
+#define ll long long
+#define fr(i, n) for (ll i = 0; i < n; i++)
+#define inp(v)
+#define all(x) (x).begin(), (x).end()
+typedef long double lld;
 int main()
 {
-    int t;
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    ll t;
     cin >> t;
     while (t--)
     {
-        ll int n;
+        ll n;
         cin >> n;
         string s;
         cin >> s;
-        map<char, int> M;
-        for (int i = 0; s[i]; i++)
+        ll cnt = 0;
+        for (int i = 0; i < n; i++)
         {
-
-            if (M.find(s[i]) == M.end())
+            if (s[i] == '1')
             {
-                M.insert(make_pair(s[i], 1));
-            }
-            else
-            {
-                M[s[i]]++;
+                cnt++;
             }
         }
-        bool ans = 0;
-        for (auto it : M)
+        ll z=n-cnt;
+        ll mini=min(z,cnt);
+        if (mini & 1)
         {
-            if (it.second % 2 == 1)
-            {
-                ans = 1;
-                cout << "NO" << endl;
-                break;
-            }
+           cout<<"Zlatan"<<endl;
         }
-        if (!ans)
+        else
         {
-            cout << "YES" << endl;
+            cout<<"Ramos"<<endl;
         }
+        
+        
     }
 }

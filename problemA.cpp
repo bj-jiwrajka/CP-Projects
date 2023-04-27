@@ -9,34 +9,47 @@ using namespace std;
 #define inp(v)
 #define all(x) (x).begin(), (x).end()
 typedef long double lld;
-int main(){
-ios_base::sync_with_stdio(0);
-cin.tie(0);
-ll t;
-cin>>t;
-while (t--)
+
+string DecimalToBinary(int num)
 {
-ll n;
-cin>>n;
-ll arr[n];
-for (ll i = 0; i < n; i++)
+    string str;
+    while (num)
+    {
+        if (num & 1) // 1
+            str += '1';
+        else // 0
+            str += '0';
+        num >>= 1; // Right Shift by 1
+    }
+    reverse(str.begin(), str.end());
+    return str;
+}
+int main()
 {
-cin>>arr[i];
-}
-for (ll i = 0; i < n; i++)
-{
-    arr[i]=arr[i]^(i+1);
-}
-map<ll, ll> mp;
-for (ll i = 0; i < n; i++)
-{
-mp[arr[i]]++;
-}
-ll sum=0;
-for (ll i = 0; i < mp.size(); i++)
-{
-   sum+=(mp[i]*(mp[i]-1))/2;
-}
-cout<<sum<<endl;
-}
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    ll t;
+    cin >> t;
+    while (t--)
+    {
+        int n;
+        cin >> n;
+        int cnt = 0;
+        if (n == 0)
+        {
+            cout << 1 << endl;
+            continue;
+        }
+
+        string s = DecimalToBinary(n);
+        // cout<<s<<endl;
+        for (int i = 0; i < s.length(); i++)
+        {
+            if (s[i] == '1')
+            {
+                cnt++;
+            }
+        }
+        cout <<pow(2,cnt)<< endl;
+    }
 }

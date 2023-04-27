@@ -20,7 +20,7 @@ int main()
     {
         ll m, n;
         cin >> m >> n;
-        vector<vector<ll>>v (m,vector<ll>(n));
+        vector<vector<ll>> v(m, vector<ll>(n));
         for (int i = 0; i < m; i++)
         {
             for (int j = 0; j < n; j++)
@@ -34,8 +34,7 @@ int main()
             sort(v[j].begin(), v[j].end());
         }
 
-
-// cout<<1<<endl;
+        // cout<<1<<endl;
         for (int i = 0; i < m; i++)
         {
             for (int j = 0; j < n; j++)

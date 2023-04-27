@@ -1,57 +1,55 @@
-#include <iostream>
+// Let's begin
+#include <bits/stdc++.h>
+// #include<appiness.h>
 using namespace std;
+#define md 1000000007
+#define pb push_back
+#define ll long long
+#define fr(i, n) for (ll i = 0; i < n; i++)
+#define inp(v)
+#define all(x) (x).begin(), (x).end()
+typedef long double lld;
+const int N = 1005;
 
-long long get_points(long long n, long long w) {
-    return 3 * w + (n - w);
-}
-
-int main() {
-    int t;
-    cin >> t;
-
-    while (t--) {
-        long long n, p;
-        cin >> n >> p;
-
-        long long lo = 0, hi = n;
-        long long max_wins = -1, min_wins = -1;
-
-        while (lo <= hi) {
-            long long mid = (lo + hi) / 2;
-            long long points = get_points(n, mid);
-
-            if (points == p) {
-                max_wins = mid;
-                break;
-            } else if (points < p) {
-                lo = mid + 1;
-            } else {
-                hi = mid - 1;
-            }
-        }
-
-        lo = 0, hi = n;
-
-        while (lo <= hi) {
-            long long mid = (lo + hi) / 2;
-            long long points = get_points(n, mid);
-
-            if (points == p) {
-                min_wins = mid;
-                break;
-            } else if (points < p) {
-                lo = mid + 1;
-            } else {
-                hi = mid - 1;
-            }
-        }
-
-        if (max_wins == -1 || min_wins == -1 || max_wins < min_wins) {
-            cout << -1 << endl;
-        } else {
-            cout << min_wins << " " << max_wins << endl;
+ll n, m;
+ll arr[N][N], dp[N][N];
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    // ll m, n;
+    const int N = 1002;
+    cin >> n >> m;
+    for (int i = 1; i <= n; ++i)
+    {
+        for (int j = 1; j <= m; ++j)
+        {
+            cin >> arr[i][j];
         }
     }
+
+    ll ans = 0;
+    for (int i = 1; i <= n; ++i)
+    {
+        for (int j = 1; j <= m; ++j)
+        {
+            dp[i][j] = 1;
+            if (j > 1 and arr[i][j - 1] <= arr[i][j])
+            {
+                dp[i][j] = max(dp[i][j], dp[i][j - 1] + 1);
+            }
+            if (i > 1 and arr[i - 1][j] >= arr[i][j])
+            {
+                dp[i][j] = max(dp[i][j], dp[i - 1][j] + 1);
+            }
+            if (dp[i][j] >= ans)
+            {
+                ans = dp[i][j];
+            }
+        }
+    }
+
+    cout << ans + 1 << endl;
 
     return 0;
 }
