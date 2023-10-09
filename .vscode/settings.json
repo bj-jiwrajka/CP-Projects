@@ -68,5 +68,7 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp"
-    }
+    },
+    "cph.general.onceMaintainerMessage": false,
+    "C_Cpp.errorSquiggles": "disabled"
 }

@@ -1,10 +1,13 @@
-// Let's begin
+// JAI SHREE GANESH
 #include <bits/stdc++.h>
 // #include<appiness.h>
 using namespace std;
 #define md 1000000007
 #define pb push_back
 #define ll long long
+#define take(a) \
+    ll a;       \
+    cin >> a;
 #define fr(i, n) for (ll i = 0; i < n; i++)
 #define inp(v)
 #define all(x) (x).begin(), (x).end()
@@ -15,29 +18,21 @@ int main()
     cin.tie(0);
     ll t;
     cin >> t;
-    while (t--)
+    if(t==1)
     {
-        ll n;
-        cin >> n;
-
-        ll arr[n];
-        for (int i = 0; i < n; i++)
-        {
-            cin >> arr[i];
-        }
-
-        ll sum = 0;
-        for (int i = 0; i < n; i++)
-        {
-            sum += arr[i];
-        }
-        sum/=n;
-        sort(arr, arr + n);
-        ll s = 0;
-        for (int i = 0; i < n - 1; i++)
-        {
-            s += arr[i];
-        }
-        cout << min(sum,s) << endl;
+        cout<<1<<endl;
+        return 0;
     }
+    cout << t << " ";
+    ll i = 2;
+    while (i < t)
+    {
+        while (t!=i and t % i == 0)
+        {
+            cout << t / i << " ";
+            t /= i;
+        }
+        i++;
+    }
+    cout<<1<<endl;
 }

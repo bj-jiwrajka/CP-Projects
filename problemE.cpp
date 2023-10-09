@@ -1,75 +1,46 @@
-// // Name-Bijay Jiwrajka
-// // Scholar id -2112055
-// #include <bits/stdc++.h>
-// using namespace std;
-// int main()
-// {
-//     int n;
-//     long long int s;
-//     cin >> n >> s;
-//     int arr[n];
-//     int brr[n];
-//     for (int i = 1; i <= n; i++)
-//     {
-//         cin >> arr[i];
-//     }
-//     for (int i = 1; i <= n; i++)
-//     {
-//         cin >> brr[i];
-//     }
-//     int cnt = 0;
-//     int max =0;
-
-//     int i=1;
-//     while (s != 0)
-//     {
-//         arr[i] = brr[1];
-//         i++;
-//         s--;
-//     }
-
-//     for (int i = 1; i <= n; i++)
-//     {
-//         if (arr[i] == brr[i])
-//         {
-//             cnt++;
-//             if (cnt > max)
-//             {
-//                 max = cnt;
-//             }
-//         }
-//         else
-//         {
-//             cnt = 0;
-//         }
-//     }
-//     cout << max << endl;
-
-//     return 0;
-// }
-
+// JAI SHREE GANESH
 #include <bits/stdc++.h>
+// #include<appiness.h>
 using namespace std;
-const int MOD = 1e9 + 7;
-
-int f(int n) {
-    if (n == 1) return 1;
-    if (n == 2) return 2;
-    if (n == 3) return 3;
-    int dp[n + 1];
-    dp[1] = 1;
-    dp[2] = 2;
-    dp[3] = 3;
-    for (int i = 4; i <= n; i++) {
-        dp[i] = (1LL * dp[i - 1] * dp[i - 2] * dp[i - 3]) % MOD;
+#define md 1000000007
+#define pb push_back
+#define ll long long
+#define take(a) \
+    ll a;       \
+    cin >> a;
+#define fr(i, n) for (ll i = 0; i < n; i++)
+#define inp(v)
+#define all(x) (x).begin(), (x).end()
+typedef long double lld;
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    ll n, k, q;
+    cin >> n >> k >> q;
+    vector<ll> arr(2000001, 0);
+    vector<ll> arr2;
+    fr(i, n)
+    {
+        ll a, b;
+        cin >> a >> b;
+        for (int i = a; i <= b; i++)
+        {
+            arr[i]++;
+        }
     }
-    return dp[n];
+    fr(i, q)
+    {
+        ll a, b;
+        cin >> a >> b;
+        ll ans = 0;
+        for (int i = a; i <= b; i++)
+        {
+            if (arr[i] >= k)
+            {
+                ans++;
+            }
+        }
+        cout << ans << endl;
+    }
 }
-
-int main() {
-    int n;
-    cin >> n;
-    cout << f(n) << endl;
-    return 0;
-}
-

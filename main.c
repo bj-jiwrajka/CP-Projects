@@ -159,4 +159,19 @@
 //     }
 // }
 
+#include <stdio.h>
+int main()
+{
+    int i, j = 0;
+    for (i = 0; i < 5; i++)
+    {
+        while (j < pow(2, i))
+        {
+            printf("*");
+            j++;
+        }
+        j = 0;
 
+        printf("\n");
+    }
+}

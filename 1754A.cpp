@@ -10,27 +10,27 @@ int main()
         cin >> n;
         string s;
         cin >> s;
-        int cnt=0;
+        stack<char> st;
         for (int i =0;i<n ;i++)
         {
 
             if (s[i] == 'Q')
             {
-                cnt++;
+               st.push(s[i]);
             }
-            else
+            else if(!st.empty())
             {
-                cnt--;
+                st.pop();
             }
          
         }
-        if (cnt> 0)
+        if (st.size()> 0)
         {
-            cout << "NO" << endl;
+            cout << "No" << endl;
         }
         else
         {
-            cout << "YES" << endl;
+            cout << "Yes" << endl;
         }
     }
     return 0;
