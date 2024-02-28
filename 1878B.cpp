@@ -1,41 +1,27 @@
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <dirent.h>
-#include <unistd.h>
-
-bool endsWith(const std::string& str, const std::string& suffix) {
-    return str.size() >= suffix.size() && str.compare(str.size() - suffix.size(), suffix.size(), suffix) == 0;
+//JAI SHREE GANESH
+#include <bits/stdc++.h>
+// #include<appiness.h>
+using namespace std;
+#define md 1000000007
+#define pb push_back
+#define ll long long
+#define take(a)  ll a; cin>>a;
+#define fr(i, n) for (ll i = 0; i < n; i++)
+#define all(x) (x).begin(), (x).end()
+typedef long double lld;
+int main(){
+ios_base::sync_with_stdio(0);
+cin.tie(0);
+ll t;
+cin>>t;
+     while (t--)
+     {
+ll n;
+cin>>n;
+//vector<ll> arr(n, 0);
+//fr(i, n)
+//{
+//cin >> arr[i];
+//}
 }
-
-int main() {
-    std::string folderPath = "."; 
-
-    try {
-        DIR* directory = opendir(folderPath.c_str());
-        if (directory) {
-            struct dirent* entry;
-            while ((entry = readdir(directory)) != NULL) {
-                if (entry->d_type == DT_REG && endsWith(entry->d_name, ".exe")) {
-                    std::string filePath = folderPath + "/" + entry->d_name;
-                    if (unlink(filePath.c_str()) == 0) {
-                        std::cout << "Deleted: " << filePath << std::endl;
-                    } else {
-                        std::cerr << "Error deleting: " << filePath << std::endl;
-                    }
-                }
-            }
-            closedir(directory);
-        } else {
-            std::cerr << "Error opening directory: " << folderPath << std::endl;
-            return 1;
-        }
-    } catch (const std::exception& ex) {
-        std::cerr << "Error: " << ex.what() << std::endl;
-        return 1;
-    }
-
-    std::cout << "All .bin files deleted successfully." << std::endl;
-
-    return 0;
 }

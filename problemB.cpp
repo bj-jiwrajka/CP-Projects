@@ -1,3 +1,4 @@
+// JAI SHREE GANESH
 #include <bits/stdc++.h>
 // #include<appiness.h>
 using namespace std;
@@ -8,7 +9,6 @@ using namespace std;
     ll a;       \
     cin >> a;
 #define fr(i, n) for (ll i = 0; i < n; i++)
-#define inp(v)
 #define all(x) (x).begin(), (x).end()
 typedef long double lld;
 int main()
@@ -19,24 +19,12 @@ int main()
     cin >> t;
     while (t--)
     {
-        string s;
-        cin >> s;
-        ll k;
-        cin >> k;
-        ll n = s.length();
-        string ans = "";
-        int i = 0;
-        while (i+k < n and s[i] <= s[i + k])
-        {
-            ans += s[i];
-            i++;
-        }
-        i += k;
-        // i--;
-        for (ll j = i; j < n; j++)
-        {
-            ans += s[j];
-        }
-        cout << ans << endl;
+        ll a, b, c;
+        cin >> a >> b >> c;
+        if (min(a-1, c - 1) * 2 >= b)
+            cout << "YES" << endl;
+
+        else
+            cout << "NO" << endl;
     }
 }

@@ -9,32 +9,16 @@ using namespace std;
     ll a;       \
     cin >> a;
 #define fr(i, n) for (ll i = 0; i < n; i++)
-#define inp(v)
 #define all(x) (x).begin(), (x).end()
 typedef long double lld;
 int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    ll t;
-    cin >> t;
-    while (t--)
-    {
-        ll a, b, c, n;
-        cin >> a >> b >> c >> n;
-        ll sum = a + 10 * b + 100 * c;
-        ll k=n/100;
-        ll kk= min(k,c);
-        n-=kk*100;
-        k=n/10;
-        kk=min(k,b);
-        n-=kk*10;
-        if(a<n)
-        {
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }
+    ll a, b;
+    cin >> a >> b;
+    if (a > b)
+        cout << a << endl;
+    else
+        cout << b << endl;
 }

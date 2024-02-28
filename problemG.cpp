@@ -1,4 +1,5 @@
-// JAI SHREE GANESH
+// Name - Bijay Jiwrajka
+// Scholar ID - 2112055
 #include <bits/stdc++.h>
 // #include<appiness.h>
 using namespace std;
@@ -15,28 +16,23 @@ int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    ll t;
-    cin >> t;
-    while (t--)
+
+    ll n;
+    cin >> n;
+    ll k, s;
+    cin >> k >> s;
+    vector<ll> arr(n, 0);
+    fr(i, n)
     {
-        ll n;
-        cin >> n;
-        ll k;
-        cin >> k;
-        vector<ll> arr(n, 0);
-        fr(i, n)
-        {
-            cin >> arr[i];
-        }
-        vector<ll> brr(n, 0);
-        fr(i, n)
-        {
-            cin >> brr[i];
-        }
-        ll cnt=0;
-        fr(i,n)
-        {
-            
-        }
+        cin >> arr[i];
     }
+    sort(all(arr));
+    ll ans = -1;
+    ll i = 0;
+    while (i < n - s + 1)
+    {
+        ans = max(ans, arr[i + s - 1] - arr[i]);
+        i += s;
+    }
+    cout << ans << endl;
 }

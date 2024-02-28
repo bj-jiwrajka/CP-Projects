@@ -1,4 +1,5 @@
-// JAI SHREE GANESH
+// Name - Bijay Jiwrajka
+// Scholar ID - 2112055
 #include <bits/stdc++.h>
 // #include<appiness.h>
 using namespace std;
@@ -9,7 +10,6 @@ using namespace std;
     ll a;       \
     cin >> a;
 #define fr(i, n) for (ll i = 0; i < n; i++)
-#define inp(v)
 #define all(x) (x).begin(), (x).end()
 typedef long double lld;
 int main()
@@ -22,25 +22,17 @@ int main()
     {
         ll n;
         cin >> n;
-        vector<ll> arr(n, 0);
-        bool chk = 0;
-        ll ans;
-        fr(i, n)
+        string s;
+        cin >> s;
+        vector<ll> v(26, 0);
+        for (int i = 0; i < n; i++)
+            v[s[i] - 'A']++;
+        ll c = 0;
+        for (ll i = 0; i < 26; i++)
         {
-            cin >> arr[i];
-            if (arr[i] < 0)
-            {
-                chk = 1;
-                ans = arr[i];
-            }
+            if (v[i] > i)
+                c++;
         }
-        if (!chk)
-        {
-            cout << *max_element(all(arr)) << endl;
-        }
-        else
-        {
-            cout << ans << endl;
-        }
+        cout << c << endl;
     }
 }

@@ -1,4 +1,5 @@
-// JAI SHREE GANESH
+// Name - Bijay Jiwrajka
+// Scholar ID - 2112055
 #include <bits/stdc++.h>
 // #include<appiness.h>
 using namespace std;
@@ -9,72 +10,34 @@ using namespace std;
      ll a;      \
      cin >> a;
 #define fr(i, n) for (ll i = 0; i < n; i++)
-#define inp(v)
 #define all(x) (x).begin(), (x).end()
 typedef long double lld;
 int main()
 {
      ios_base::sync_with_stdio(0);
      cin.tie(0);
-
-     ll n;
-     cin >> n;
-     ll k;
-     cin >> k;
-     vector<ll> arr(n, 0);
-     fr(i, n)
+     ll t;
+     cin >> t;
+     while (t--)
      {
-          cin >> arr[i];
-     }
-     vector<int> brr(n, 0);
-     fr(i, n)
-     {
-          cin >> brr[i];
-     }
-     ll ind;
-     ll mn = *min_element(all(arr));
-     fr(i, n)
-     {
-          if (arr[i] == mn)
+          ll n;
+          cin >> n;
+          ll k;
+          cin >> k;
+          ll ans = 1;
+          bool arr[n + 1] = {0};
+          for (ll i = 2; i <= k; i++)
           {
-               ind = i;
-               break;
-          }
-     }
-     ll nu = k;
-     ll ku = k;
-     ll ans = 1e9;
-     fr(j, n)
-     {
-          k = nu;
-          fr(i, n)
-          {
-               if (i != j)
+               for (ll j = i; j <= n; j += i)
                {
-                    if ((k >= 2100 and brr[i] == 0) or (k < 1900 and brr[i] == 1))
-                    {
-                         continue;
-                    }
-                    else
-                    {
-                         ll b = (arr[i] - k) / 4;
-                         k += b;
-                    }
+                    arr[j] = 1;
                }
           }
-          ans = min(ans, nu - k);
-     }
-     fr(i, n)
-     {
-          if ((ku >= 2100 and brr[i] == 0) or (ku < 1900 and brr[i] == 1))
+          for (ll i = 1; i <= n; i++)
           {
-               continue;
+               if (arr[i] == 0)
+                    ans = (ans * i) % md;
           }
-          else
-          {
-               ll b = (arr[i] - ku) / 4;
-               ku += b;
-          }
+          cout << ans % md << endl;
      }
-     cout << min(ans, nu - ku) << endl;
 }

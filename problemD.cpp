@@ -9,30 +9,54 @@ using namespace std;
     ll a;       \
     cin >> a;
 #define fr(i, n) for (ll i = 0; i < n; i++)
-#define inp(v)
 #define all(x) (x).begin(), (x).end()
 typedef long double lld;
+bool isPrime(ll n)
+{
+    if (n <= 1)
+        return false;
+    if (n <= 3)
+        return true;
+    if (n % 2 == 0 or n % 3 == 0)
+        return false;
+    for (ll i = 5; i * i <= n; i += 6)
+    {
+        if (n % i == 0 or n % (i + 2) == 0)
+            return false;
+    }
+    return true;
+}
 int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    ll t;
-    cin >> t;
-    if(t==1)
+
+    ll n;
+    cin >> n;
+    vector<ll> arr(n);
+    fr(i, n) cin >> arr[i];
+    ll ans = 0;
+    for (ll j = 0; j < 31; j++)
     {
-        cout<<1<<endl;
-        return 0;
-    }
-    cout << t << " ";
-    ll i = 2;
-    while (i < t)
-    {
-        while (t!=i and t % i == 0)
+        ll o = 0, e = 0;
+        fr(i, n)
         {
-            cout << t / i << " ";
-            t /= i;
+            if (arr[i] & (1 << j))
+                o++;
+            else
+                e++;
         }
-        i++;
+        ans += (o * e);
     }
-    cout<<1<<endl;
+    ans *= 2;
+    ans += n;
+    for (ll i = ans; i >= 1; i--)
+    {
+        if (isPrime(i))
+        {
+            ans %= i;
+            break;
+        }
+    }
+    cout << ans << endl;
 }
